@@ -1,25 +1,26 @@
 """
-Storyboard tool — parses a script into scenes and saves storyboard/scenes.json.
+Storyboard tool — parses a script into scenes and initialises the project folder structure.
 Image prompts are passed in by the orchestrator (Claude) — this tool only handles
 parsing and persistence.
 
 Usage (standalone):
-    py tools/storyboard.py script/my_script.txt storyboard/scenes.json
+    py tools/storyboard.py script/my_script.txt --title "Άλωση 1453"
 
-Scene JSON format:
-    {
-        "id": 1,
-        "section": "HOOK",
-        "narration": "...",
-        "image_prompt": "...",
-        "sound_effects": []
-    }
+Output structure:
+    generated/<title>/
+        scenes.json
+        scene_01/
+            script.txt
+            prompt.txt
+        scene_02/
+            ...
 """
 
 import re
 import json
 import os
 import argparse
+from tools.project import init_project
 
 STYLE_SUFFIX = (
     "Byzantine manuscript illustration, pencil sketch on aged parchment, "
@@ -75,12 +76,14 @@ def load_storyboard(path: str) -> list[dict]:
         return json.load(f)
 
 
-def build_storyboard(script_path: str, output_path: str = "storyboard/scenes.json") -> dict:
-    """Parse script and save skeleton storyboard (no image prompts yet)."""
+def build_storyboard(script_path: str, title: str, output_path: str = None) -> dict:
+    """Parse script, initialise project folder structure, write scene files."""
     scenes = parse_script(script_path)
-    save_storyboard(scenes, output_path)
+    project_dir = init_project(title, scenes)
+    index_path = output_path or os.path.join(project_dir, "scenes.json")
     return {
-        "path": output_path,
+        "project_dir": project_dir,
+        "index_path": index_path,
         "scene_count": len(scenes),
         "scenes": scenes
     }
@@ -92,11 +95,11 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Parse script into storyboard scenes")
     parser.add_argument("script", help="Path to script .txt file")
-    parser.add_argument("output", nargs="?", default="storyboard/scenes.json", help="Output JSON path")
+    parser.add_argument("--title", required=True, help="Documentary title (used as folder name)")
     args = parser.parse_args()
 
-    result = build_storyboard(args.script, args.output)
-    print(f"Parsed {result['scene_count']} scenes → {result['path']}")
+    result = build_storyboard(args.script, args.title)
+    print(f"Parsed {result['scene_count']} scenes → {result['project_dir']}")
     for scene in result["scenes"]:
         print(f"\n[{scene['id']}] {scene['section']}")
         print(scene["narration"][:120])
