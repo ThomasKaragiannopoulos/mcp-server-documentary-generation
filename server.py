@@ -14,6 +14,7 @@ from tools.storyboard import build_storyboard, save_storyboard
 from tools.tts_batch import process_batch as tts_batch
 from tools.image_gen import process_batch as image_gen
 from tools.assemble import assemble as assemble_video
+from tools.image_gen_chatgpt import process_batch as image_gen_chatgpt
 
 app = Server("mcp-server-documentary-generation")
 
@@ -171,6 +172,29 @@ async def list_tools() -> list[Tool]:
                 "required": ["storyboard_path", "title"]
             }
         ),
+        Tool(
+            name="image_gen_chatgpt",
+            description=(
+                "Generate images via ChatGPT DALL-E 3 using Playwright browser automation. "
+                "Higher quality than local SD 1.5. Requires ChatGPT Plus. "
+                "First run opens browser for manual login; subsequent runs are headless. "
+                "Skips scenes that already have image.png (checkpointing)."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "storyboard_path": {
+                        "type": "string",
+                        "description": "Path to scenes.json"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Documentary title (matches project folder)"
+                    }
+                },
+                "required": ["storyboard_path", "title"]
+            }
+        ),
     ]
 
 
@@ -218,6 +242,13 @@ async def call_tool(name: str, arguments: dict) -> list[TextContent]:
             arguments["title"],
         )
         return [TextContent(type="text", text=json.dumps({"output": output_path}))]
+
+    if name == "image_gen_chatgpt":
+        result = image_gen_chatgpt(
+            arguments["storyboard_path"],
+            arguments["title"],
+        )
+        return [TextContent(type="text", text=json.dumps({"scenes_processed": len(result)}))]
 
     return [TextContent(type="text", text=f"Unknown tool: {name}")]
 
