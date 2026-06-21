@@ -1,0 +1,11 @@
+mcp
+wikipedia-api
+chatterbox-tts
+torchaudio
+torch
+scipy
+soundfile
+replicate
+google-api-python-client
+google-auth-oauthlib
+chromadb
