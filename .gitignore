@@ -1,0 +1,10 @@
+*.wav
+*.mp4
+*.png
+*.srt
+__pycache__/
+*.pyc
+.env
+output/
+audio/
+images/
