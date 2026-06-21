@@ -1,5 +1,6 @@
 mcp
 wikipedia-api
+librosa
 chatterbox-tts
 torchaudio
 torch

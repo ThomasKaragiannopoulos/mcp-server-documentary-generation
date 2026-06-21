@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "section": "HOOK",
+    "narration": "Ήταν η 29η Μαΐου 1453. Μια πόλη που αντιστάθηκε για χίλια χρόνια, έπεφτε σε μια νύχτα.",
+    "image_prompt": "Constantinople burning at dawn, Ottoman army at the walls, dark smoke rising over golden domes, Byzantine manuscript illustration, pencil sketch on aged parchment, charcoal drawing, film grain, vignette, 16:9, no text",
+    "sound_effects": ["distant battle", "fire crackling", "wind"]
+  },
+  {
+    "id": 2,
+    "section": "ΠΕΡΙΒΑΛΛΟΝ",
+    "narration": "Η Κωνσταντινούπολη δεν ήταν απλώς μια πόλη. Ήταν η καρδιά της Βυζαντινής Αυτοκρατορίας — η γέφυρα ανάμεσα στην Ανατολή και τη Δύση, ανάμεσα στον αρχαίο κόσμο και τη χριστιανική Ευρώπη. Τα Θεοδοσιανά τείχη της, πέντε χιλιόμετρα αδιαπέραστου πέτρινου τοίχου, είχαν αποκρούσει κάθε εχθρό για δέκα αιώνες.",
+    "image_prompt": "Theodosian walls of Constantinople from outside, massive ancient stone fortifications stretching to the horizon, Byzantine soldiers on battlements, golden hour light, Byzantine manuscript illustration, pencil sketch on aged parchment, charcoal drawing, film grain, vignette, 16:9, no text",
+    "sound_effects": ["wind", "distant bells", "crowds"]
+  },
+  {
+    "id": 3,
+    "section": "ΠΤΩΣΗ",
+    "narration": "Αλλά το 1453, το Βυζάντιο ήταν ήδη σκιά του εαυτού του. Ο σουλτάνος Μωάμεθ ο Β΄, μόλις 21 ετών, έφερε μαζί του 80.000 στρατιώτες και κανόνια που δεν είχε δει ποτέ ο κόσμος. Ο αυτοκράτορας Κωνσταντίνος ΙΑ΄ Παλαιολόγος είχε μόλις 7.000 υπερασπιστές. Η Δύση δεν ήρθε να βοηθήσει. Για 53 μέρες, η πόλη άντεξε. Την αυγή της 29ης Μαΐου, τα τείχη έσπασαν.",
+    "image_prompt": "Sultan Mehmed II young on horseback commanding vast Ottoman army with massive cannons, Byzantine emperor Constantine XI with small band of defenders, dramatic contrast of numbers, Byzantine manuscript illustration, pencil sketch on aged parchment, charcoal drawing, film grain, vignette, 16:9, no text",
+    "sound_effects": ["cannon fire", "battle cries", "swords clashing", "drums"]
+  },
+  {
+    "id": 4,
+    "section": "ΤΕΛΟΣ",
+    "narration": "Ο Κωνσταντίνος αρνήθηκε να παραδοθεί. Έριξε τα αυτοκρατορικά διάσημα και πολέμησε ως απλός στρατιώτης. Δεν βρέθηκε ποτέ το σώμα του. Ο θρύλος λέει πως ο «μαρμαρωμένος βασιλιάς» κοιμάται κάπου κάτω από την πόλη, περιμένοντας να ξυπνήσει και να ανακτήσει την Κωνσταντινούπολη.",
+    "image_prompt": "Byzantine emperor Constantine XI charging alone into battle without imperial regalia surrounded by enemies, below ground a marble king encased in stone sleeping beneath Constantinople, Byzantine manuscript illustration, pencil sketch on aged parchment, charcoal drawing, film grain, vignette, 16:9, no text",
+    "sound_effects": ["battle", "silence", "single bell toll"]
+  },
+  {
+    "id": 5,
+    "section": "ΕΠΙΛΟΓΟΣ",
+    "narration": "Η πτώση της Κωνσταντινούπολης σήμανε το τέλος του Μεσαίωνα. Μια αυτοκρατορία χίλιων χρόνων έσβησε μέσα σε μια μέρα. Αλλά οι ιδέες, οι τέχνες και η γνώση που διέφυγαν δυτικά, έτρεψαν το φως της Αναγέννησης. Η Πόλη έπεσε. Αλλά ό,τι αντιπροσώπευε δεν πέθανε ποτέ.",
+    "image_prompt": "Byzantine scholars fleeing Constantinople carrying ancient manuscripts westward, city burning in the distance, Renaissance light breaking on the horizon, Byzantine manuscript illustration, pencil sketch on aged parchment, charcoal drawing, film grain, vignette, 16:9, no text",
+    "sound_effects": ["mournful strings", "wind", "fading bells"]
+  }
+]

@@ -6,9 +6,10 @@ Usage: py tts.py "Το κείμενο εδώ" output.wav
 """
 
 import argparse
+import numpy as np
 import torch
 import torchaudio as ta
-import torchaudio.functional as F
+import librosa
 from chatterbox.mtl_tts import ChatterboxMultilingualTTS
 
 LANGUAGE = "el"
@@ -28,9 +29,9 @@ def stretch_audio(wav: torch.Tensor, sr: int, speed: float) -> torch.Tensor:
     """Slow down or speed up audio while preserving pitch."""
     if speed == 1.0:
         return wav
-    effects = [["tempo", str(speed)]]
-    wav_stretched, _ = ta.sox_effects.apply_effects_tensor(wav, sr, effects)
-    return wav_stretched
+    audio_np = wav.squeeze().numpy()
+    stretched = librosa.effects.time_stretch(audio_np, rate=speed)
+    return torch.tensor(stretched).unsqueeze(0)
 
 def main():
     parser = argparse.ArgumentParser(description="Greek TTS via Chatterbox Multilingual")
